@@ -16,9 +16,10 @@ You can star this repository to keep track of the project if it's helpful for yo
 
 # DeepLearningToys List
 
-|  Project EN         |   Project CN                                          | Introduction                                                  | Core Code                                      | Resource                                                                                    |
-|  :----:             |   :----:                                              | :----:                                                        | :----:                                         | :----:                                                                                      |
-|  garbageclassifier  |   垃圾分类器                                          | [click](https://mp.weixin.qq.com/s/n6eKeuhmg6YFgQLVvm3LDg)    | [click](./deeplearningtoys/garbageclassifier)  | [click](https://github.com/CharlesPikachu/deeplearningtoys/releases/tag/garbageclassifier)  |
+|  Project EN         |   Project CN                                          | Introduction                                                  | Core Code                                      | Resource                                                                                     |
+|  :----:             |   :----:                                              | :----:                                                        | :----:                                         | :----:                                                                                       |
+|  garbageclassifier  |   垃圾分类器                                          | [click](https://mp.weixin.qq.com/s/n6eKeuhmg6YFgQLVvm3LDg)    | [click](./deeplearningtoys/garbageclassifier)  | [click](https://github.com/CharlesPikachu/deeplearningtoys/releases/tag/garbageclassifier)   |
+|  facevaluepredictor |   颜值预测器                                          | [click](https://mp.weixin.qq.com/s/5eVFPMiFA8VhYYlTHlNh1A)    | [click](./deeplearningtoys/facevaluepredictor) | [click](https://github.com/CharlesPikachu/deeplearningtoys/releases/tag/facevaluepredictor)  |
 
 
 # Projects in Charles_pikachu
