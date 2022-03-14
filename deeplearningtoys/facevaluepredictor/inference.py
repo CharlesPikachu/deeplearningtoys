@@ -16,6 +16,7 @@ import argparse
 import torchvision
 import numpy as np
 import torch.nn as nn
+import torch.utils.model_zoo as model_zoo
 from PIL import Image
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
@@ -50,7 +51,7 @@ class Inferencer(QWidget):
         self.classify_btn = QPushButton('颜值预测')
         self.classify_label = QLabel('预测结果:')
         self.classify_edit = QLineEdit()
-        self.classify_edit.setText('暂无预测结果')
+        self.classify_edit.setText('预测结果会实时更新在图片上, 最低分为0分, 最高分为5分')
         # 组件布局
         grid.addWidget(self.show_label, 0, 0, 5, 7)
         grid.addWidget(self.image_label, 5, 0, 1, 1)
@@ -86,7 +87,7 @@ class Inferencer(QWidget):
         # 模型初始化
         model = torchvision.models.resnet18()
         model.fc = nn.Linear(in_features=512, out_features=1, bias=True)
-        model.load_state_dict(torch.load(model_path))
+        model.load_state_dict(model_zoo.load_url('https://github.com/CharlesPikachu/deeplearningtoys/releases/download/facevaluepredictor/facevaluepredictor.pth', map_location='cpu'))
         if use_cuda: model = model.cuda()
         face_detector = dlib.get_frontal_face_detector()
         # 图片预处理
@@ -97,7 +98,7 @@ class Inferencer(QWidget):
         if len(rects) < 1: return
         for rect in rects:
             lefttop_x, lefttop_y, rightbottom_x, rightbottom_y = rect.left(), rect.top(), rect.right(), rect.bottom()
-            cv2.rectangle(image, (lefttop_x, lefttop_y), (rightbottom_x, rightbottom_y), (0, 255, 0), 2)
+            cv2.rectangle(image, (lefttop_x, lefttop_y), (rightbottom_x, rightbottom_y), (0, 255, 0), 3)
             face = image_rgb[lefttop_y: rightbottom_y, lefttop_x: rightbottom_x] / 255.
             face = resize(face, (224, 224, 3), mode='reflect')
             face = np.transpose(face, (2, 0, 1))
