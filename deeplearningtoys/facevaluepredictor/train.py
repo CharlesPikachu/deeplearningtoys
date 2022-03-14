@@ -1,6 +1,6 @@
 '''
 Function:
-    train the model
+    模型训练
 Author:
     Charles
 微信公众号:
