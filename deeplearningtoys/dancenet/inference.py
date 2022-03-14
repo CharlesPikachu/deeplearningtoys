@@ -8,6 +8,7 @@ Author:
 '''
 import os
 import cv2
+import torch
 import argparse
 import numpy as np
 from tqdm import tqdm
@@ -45,7 +46,7 @@ class Inferencer():
         # 开始生成会跳舞的小姐姐
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         video = cv2.VideoWriter(self.opts.outputpath, fourcc, self.opts.fps, self.opts.imagesize)
-        pbar = tqdm(range(self.opts.frames))
+        pbar = tqdm(range(1, self.opts.frames+1))
         if self.opts.method == 'random':
             for frame_idx in pbar:
                 pbar.set_description('generate image in random')
@@ -58,7 +59,8 @@ class Inferencer():
         else:
             for frame_idx in pbar:
                 pbar.set_description('generate image in fromtrain')
-                img = cv2.imread(os.path.join('images', '%d.jpg' % i), cv2.IMREAD_GRAYSCALE)
+                print(os.path.isfile(os.path.join('images', '%d.jpg' % frame_idx)), os.path.join('images', '%d.jpg' % frame_idx))
+                img = cv2.imread(os.path.join('images', '%d.jpg' % frame_idx), cv2.IMREAD_GRAYSCALE)
                 img = cv2.resize(img, self.opts.imagesize)
                 img = img.astype(np.float32) / 255
                 img = torch.from_numpy(img).unsqueeze(-1).permute(2, 0, 1).unsqueeze(0)

@@ -73,12 +73,6 @@ class Trainer():
             if ((epoch % self.opts.saveinterval == 0) and (epoch > 0)) or (epoch == self.opts.epochs):
                 ckpt_pth = os.path.join(self.opts.ckptdir, f'epoch_{epoch}.pth')
                 saveCheckpoints(model, ckpt_pth)
-            if epoch == int(self.opts.epochs * 3 // 5):
-                for param_group in optimizer.param_groups:
-                    param_group['lr'] = self.opts.lr * 0.1
-            elif epoch == int(self.opts.epochs * 4 // 5):
-                for param_group in optimizer.param_groups:
-                    param_group['lr'] = self.opts.lr * 0.01
 
 
 '''run'''
