@@ -57,6 +57,8 @@ def extractImagesFromVideo(videopath, savedir='images', frame_interval=3, target
                 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
                 savepath = os.path.join(savedir, str(len(os.listdir(savedir))+1)+'.jpg')
                 cv2.imwrite(savepath, img)
+        else:
+            break
 
 
 '''保存模型'''

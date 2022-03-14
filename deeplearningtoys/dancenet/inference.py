@@ -29,8 +29,8 @@ def parseArgs():
 
 
 '''模型测试'''
-class Inferencer(QWidget):
-    def __init__(self, opts, title='颜值预测器 —— Charles的皮卡丘', **kwargs):
+class Inferencer():
+    def __init__(self, opts, title='神经网络生成会跳舞的小姐姐测试脚本 —— Charles的皮卡丘', **kwargs):
         self.opts = opts
     '''运行'''
     def run(self):
