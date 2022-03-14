@@ -23,7 +23,7 @@ def parseArgs():
     parser.add_argument('--numworkers', dest='numworkers', help='导入数据时使用的线程数量', type=int, required=False, default=4)
     parser.add_argument('--backbone', dest='backbone', help='使用的骨干网络', type=str, required=False, default='resnet50')
     parser.add_argument('--classes', dest='classes', help='垃圾类别数量', type=int, required=False, default=6)
-    parser.add_argument('--lr', dest='lr', help='学习率', type=float, required=False, default=2e-4)
+    parser.add_argument('--lr', dest='lr', help='初始学习率', type=float, required=False, default=2e-4)
     parser.add_argument('--logfilepath', dest='logfilepath', help='日志文件保存路径', type=str, required=False, default='train.log')
     parser.add_argument('--saveinterval', dest='saveinterval', help='模型保存的epoch间隔', type=int, required=False, default=10)
     parser.add_argument('--epochs', dest='epochs', help='迭代数据集的轮次数量', type=int, required=False, default=200)
@@ -85,6 +85,12 @@ class Trainer():
                 torch.save(model.state_dict(), ckpt_pth)
                 acc = self.test(model, dataloader_test, FloatTensor)
                 Logging(f'{ckpt_pth} has been saved, the accuracy is {acc}', logfilepath)
+            if epoch == int(self.opts.epochs * 3 // 5):
+                for param_group in optimizer.param_groups:
+                    param_group['lr'] = self.opts.lr * 0.1
+            elif epoch == int(self.opts.epochs * 4 // 5):
+                for param_group in optimizer.param_groups:
+                    param_group['lr'] = self.opts.lr * 0.01
     '''模型测试'''
     def test(self, model, dataloader, FloatTensor):
         model.eval()

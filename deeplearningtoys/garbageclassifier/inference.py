@@ -73,6 +73,8 @@ class Inferencer(QWidget):
     def openimage(self):
         filepath = QFileDialog.getOpenFileName(self, '请选取图片路径', self.rootdir)
         self.image_edit.setText(filepath[0])
+        self.show_image = Image.open(filepath[0]).convert('RGB')
+        self.updateimage()
     '''分类'''
     def classify(self):
         # 初始化
