@@ -23,7 +23,7 @@ You can star this repository to keep track of the project if it's helpful for yo
 |  dancenet                 |   神经网络生成会跳舞的小姐姐                          | [click](https://mp.weixin.qq.com/s/fFqztmu8hk5Jje9EUrP8DQ)    | [click](./deeplearningtoys/dancenet)               | [click](https://github.com/CharlesPikachu/deeplearningtoys/releases/tag/dancenet)                 |
 |  CNNLifeGame              |   用卷积神经网络模拟生命游戏                          | [click](https://mp.weixin.qq.com/s/7_Do3TNG5tlUPE1pn-dd9w)    | [click](./deeplearningtoys/CNNLifeGame)            | [click](https://github.com/CharlesPikachu/deeplearningtoys/releases/tag/CNNLifeGame)              |
 |  deepdream                |   让卷积神经网络做一个梦                              | [click](https://mp.weixin.qq.com/s/iIhiMKutVtYEUgAiErLkVQ)    | [click](./deeplearningtoys/deepdream)              | [click](https://github.com/CharlesPikachu/deeplearningtoys/releases/tag/deepdream)                |
-|  civilizationgenerator    |   文明话生成器                                        | [click]()                                                     | [click](./deeplearningtoys/civilizationgenerator)  | [click](https://github.com/CharlesPikachu/deeplearningtoys/releases/tag/civilizationgenerator)    |
+|  civilizationgenerator    |   文明话生成器                                        | [click](https://mp.weixin.qq.com/s/On8ONhjVvbA-LSCZuTHrJw)    | [click](./deeplearningtoys/civilizationgenerator)  | [click](https://github.com/CharlesPikachu/deeplearningtoys/releases/tag/civilizationgenerator)    |
 
 
 # Projects in Charles_pikachu
